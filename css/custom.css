@@ -42,3 +42,8 @@ a img {
   display: table;
   margin: 5em auto;
 }
+
+.platform img {
+  width: 150px;
+  height: 150px;
+}
