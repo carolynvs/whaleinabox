@@ -83,19 +83,19 @@
             </li>
           </ul>
         </li>
-        <li>Open a terminal.</li>
+        <li>Open a terminal and change to the Whale in a Box Kit directory.</li>
         <li>
           <p>Create a file to contain secret credentials. Do <strong>not</strong> check-in this file.</p>
 
           <p><strong>Bash</strong></p>
-          <p>Name the file <code>secrets.sh</code> and add the following content:</p>
+          <p>Name the file <code>secrets.sh</code> and add the your Carina credentials:</p>
           <pre><code class="bash">
 export CARINA_USERNAME=username
 export CARINA_APIKEY=apikey
           </code></pre>
 
           <p><strong>PowerShell</strong></p>
-          <p>Name the file <code>secrets.ps1</code> and add the following content:</p>
+          <p>Name the file <code>secrets.ps1</code> and add your Carina credentials:</p>
           <pre><code class="powershell">
 $env:CARINA_USERNAME="username"
 $env:CARINA_APIKEY="apikey"
@@ -121,7 +121,7 @@ $ ./setup.sh
 
         <li>
           <p>
-            The output from the previous script contains the IP address of the website. If you have a
+            The output from the previous script includes the IP address of the website. If you have a
             custom domain name, update your DNS and add an A record pointing to the IP address.
             Depending on TTL (time to live) settings, this will a few minutes or longer.
           </p>
@@ -157,14 +157,14 @@ Address:  172.99.73.144
           <p>Add your Carina OAuth credentials to the secrets file.</p>
 
           <p><strong>Bash</strong></p>
-          <p>Edit <code>secrets.sh</code> and add the following content:</p>
+          <p>Edit <code>secrets.sh</code> and add your Carina OAuth credentials:</p>
           <pre><code class="bash">
 export CARINA_OAUTH_CLIENT_ID=application-id
 export CARINA_OAUTH_CLIENT_SECRET=secret
           </pre></code>
 
           <p><strong>PowerShell</strong></p>
-          <p>Edit <code>secrets.ps1</code> and add the following content:</p>
+          <p>Edit <code>secrets.ps1</code> and add your Carina OAuth credentials:</p>
           <pre><code class="powershell">
 $env:CARINA_OAUTH_CLIENT_ID="application-id"
 $env:CARINA_OAUTH_CLIENT_SECRET="secret"
