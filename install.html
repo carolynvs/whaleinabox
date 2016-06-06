@@ -89,30 +89,22 @@
 
           <p><strong>Bash</strong></p>
           <p>Name the file <code>secrets.sh</code> and add the your Carina credentials:</p>
-          <pre><code class="bash">
-export CARINA_USERNAME=username
-export CARINA_APIKEY=apikey
-          </code></pre>
+          <pre><code class="bash">export CARINA_USERNAME=username
+export CARINA_APIKEY=apikey</code></pre>
 
           <p><strong>PowerShell</strong></p>
           <p>Name the file <code>secrets.ps1</code> and add your Carina credentials:</p>
-          <pre><code class="powershell">
-$env:CARINA_USERNAME="username"
-$env:CARINA_APIKEY="apikey"
-          </code></pre>
+          <pre><code class="powershell">$env:CARINA_USERNAME="username"
+$env:CARINA_APIKEY="apikey"</code></pre>
         </li>
         <li>
           <p>Run the following command to perform one-time setup tasks:</p>
 
           <p><strong>Bash</strong></p>
-          <pre><code class="bash">
-$ ./setup.sh
-          </code></pre>
+          <pre><code class="bash">./setup.sh</code></pre>
 
           <p><strong>PowerShell</strong></p>
-          <pre><code class="powershell">
-> .\setup.ps1
-          </code></pre>
+          <pre><code class="powershell">.\setup.ps1</code></pre>
 
           <p>
             <strong>Note</strong>: You will be prompted to log into <a href="https://hub.docker.com">Docker Hub</a>.
@@ -131,21 +123,10 @@ $ ./setup.sh
           </p>
 
           <p><strong>Bash</strong></p>
-          <pre><code class="bash">
-$ dig +short example.com
-172.99.73.144
-          </code></pre>
+          <pre><code class="bash">dig +short example.com</code></pre>
 
           <p><strong>PowerShell</strong></p>
-          <pre><code class="powershell">
-&gt; nslookup example.com
-Server:  FIOS_Quantum_Gateway.fios-router.home
-Address:  192.168.1.1
-
-Non-authoritative answer:
-Name:    example.com
-Address:  172.99.73.144
-          </code></pre>
+          <pre><code class="powershell">nslookup example.com</code></pre>
         </li>
         <li>
           <p>
@@ -158,17 +139,13 @@ Address:  172.99.73.144
 
           <p><strong>Bash</strong></p>
           <p>Edit <code>secrets.sh</code> and add your Carina OAuth credentials:</p>
-          <pre><code class="bash">
-export CARINA_OAUTH_CLIENT_ID=application-id
-export CARINA_OAUTH_CLIENT_SECRET=secret
-          </pre></code>
+          <pre><code class="bash">export CARINA_OAUTH_CLIENT_ID=application-id
+export CARINA_OAUTH_CLIENT_SECRET=secret</pre></code>
 
           <p><strong>PowerShell</strong></p>
           <p>Edit <code>secrets.ps1</code> and add your Carina OAuth credentials:</p>
-          <pre><code class="powershell">
-$env:CARINA_OAUTH_CLIENT_ID="application-id"
-$env:CARINA_OAUTH_CLIENT_SECRET="secret"
-          </pre></code>
+          <pre><code class="powershell">$env:CARINA_OAUTH_CLIENT_ID="application-id"
+$env:CARINA_OAUTH_CLIENT_SECRET="secret"</pre></code>
         </li>
         <li>
           Customize the settings file by following the directions in the file.
@@ -182,14 +159,10 @@ $env:CARINA_OAUTH_CLIENT_SECRET="secret"
           </p>
 
           <p><strong>Bash</strong></p>
-          <pre><code class="bash">
-$ ./run.sh
-          </code></pre>
+          <pre><code class="bash">./run.sh</code></pre>
 
           <p><strong>PowerShell</strong></p>
-          <pre><code class="powershell">
-> .\run.ps1
-          </code></pre>
+          <pre><code class="powershell">.\run.ps1</code></pre>
         </li>
       </ol>
 
