@@ -127,29 +127,29 @@ $ ./setup.sh
           </p>
           <p>
             You can determine when the entry is ready by running the following command,
-            replacing <code>&lt;myDomain&gt;</code> with your domain name:
+            replacing <code>example.com</code> with your domain name:
           </p>
 
           <p><strong>Bash</strong></p>
           <pre><code class="bash">
-$ dig +short &lt;myDomain&gt;
+$ dig +short example.com
 172.99.73.144
           </code></pre>
 
           <p><strong>PowerShell</strong></p>
           <pre><code class="powershell">
-&gt; nslookup &lt;myDomain&gt;
+&gt; nslookup example.com
 Server:  FIOS_Quantum_Gateway.fios-router.home
 Address:  192.168.1.1
 
 Non-authoritative answer:
-Name:    &lt;myDomain&gt;
+Name:    example.com
 Address:  172.99.73.144
           </code></pre>
         </li>
         <li>
           <p>
-            <a href="https://getcarina.com/docs/reference/oauth-integration/#register-your-application">Register the website with Carina OAuth</a>.
+            <a href="https://getcarina.com/docs/reference/oauth-integration/#register-your-application" target="_blank">Register the website with Carina OAuth</a>.
             For the <strong>Callback URL</strong> use <code>https://&lt;domain-or-ip&gt;/jupyter/hub/oauth_callback</code>.
           </p>
         </li>
