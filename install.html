@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Whale in a Box installation instructions">
+    <meta name="author" content="Carolyn Van Slyck">
+    <link rel="icon" href="/img/whale.png">
+
+    <title>Unpack your Whale in a Box</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-fUMURLTdEcpeYHly3PAwggI3l2UvdHNg/I+8LRph7hLDcAZm77YfDx3Tjum9d3vK" crossorigin="anonymous">
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- Custom styles for this template -->
+    <link href="css/jumbotron.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img id="logo" src="/img/howtowhale.png" alt="Docker Docker Docker MUSHROOM!" title="Docker Docker Docker MUSHROOM!" />
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="install.html">Get started</a></li>
+            <li><a href="index.html#magic">How it works</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h2>Unpacking your Whale in a Box</h2>
+
+      <h3 id="prerequisites">Prerequisites</h3>
+
+      <ul>
+        <li>
+          A Carina account. If you do not already have one, create a free account (no credit card required)
+          by following the <a href="https://app.getcarina.com/app/signup">sign up process</a>.
+        </li>
+        <li>
+          Your Carina API key. To get it, go to the <a href="https://app.getcarina.com">Carina Control Panel</a>,
+          click your username in the top-right corner, and then click API Key.
+        </li>
+      </ul>
+
+      <h3 id="install">Installation</h3>
+
+      <ol>
+        <li>
+          Get the Whale in a Box Kit using one of the following methods:
+          <ul>
+            <li>
+              Clone the repository: <code>git clone https://github.com/carolynvs/whaleinabox-kit.git</code>.
+            </li>
+            <li>
+              Download <a href="https://github.com/carolynvs/whaleinabox-kit/archive/master.zip">https://github.com/carolynvs/whaleinabox-kit/archive/master.zip</a> and unzip it.
+            </li>
+          </ul>
+        </li>
+        <li>Open a terminal.</li>
+        <li>
+          <p>Create a file to contain secret credentials. Do <strong>not</strong> check-in this file.</p>
+
+          <p><strong>Bash</strong></p>
+          <p>Name the file <code>secrets.sh</code> and add the following content:</p>
+          <pre><code class="bash">
+export CARINA_USERNAME=username
+export CARINA_APIKEY=apikey
+          </code></pre>
+
+          <p><strong>PowerShell</strong></p>
+          <p>Name the file <code>secrets.ps1</code> and add the following content:</p>
+          <pre><code class="powershell">
+$env:CARINA_USERNAME="username"
+$env:CARINA_APIKEY="apikey"
+          </code></pre>
+        </li>
+        <li>
+          <p>Run the following command to perform one-time setup tasks:</p>
+
+          <p><strong>Bash</strong></p>
+          <pre><code class="bash">
+$ ./setup.sh
+          </code></pre>
+
+          <p><strong>PowerShell</strong></p>
+          <pre><code class="powershell">
+> .\setup.ps1
+          </code></pre>
+
+          <p>
+            <strong>Note</strong>: You will be prompted to log into <a href="https://hub.docker.com">Docker Hub</a>.
+            This is how your Jupyter notebooks and materials are distributed to your users.</p>
+        </li>
+
+        <li>
+          <p>
+            The output from the previous script contains the IP address of the website. If you have a
+            custom domain name, update your DNS and add an A record pointing to the IP address.
+            Depending on TTL (time to live) settings, this will a few minutes or longer.
+          </p>
+          <p>
+            You can determine when the entry is ready by running the following command,
+            replacing <code>&lt;myDomain&gt;</code> with your domain name:
+          </p>
+
+          <p><strong>Bash</strong></p>
+          <pre><code class="bash">
+$ dig +short &lt;myDomain&gt;
+172.99.73.144
+          </code></pre>
+
+          <p><strong>PowerShell</strong></p>
+          <pre><code class="powershell">
+&gt; nslookup &lt;myDomain&gt;
+Server:  FIOS_Quantum_Gateway.fios-router.home
+Address:  192.168.1.1
+
+Non-authoritative answer:
+Name:    &lt;myDomain&gt;
+Address:  172.99.73.144
+          </code></pre>
+        </li>
+        <li>
+          <p>
+            <a href="https://getcarina.com/docs/reference/oauth-integration/#register-your-application">Register the website with Carina OAuth</a>.
+            For the <strong>Callback URL</strong> use <code>https://&lt;domain-or-ip&gt;/jupyter/hub/oauth_callback</code>.
+          </p>
+        </li>
+        <li>
+          <p>Add your Carina OAuth credentials to the secrets file.</p>
+
+          <p><strong>Bash</strong></p>
+          <p>Edit <code>secrets.sh</code> and add the following content:</p>
+          <pre><code class="bash">
+export CARINA_OAUTH_CLIENT_ID=application-id
+export CARINA_OAUTH_CLIENT_SECRET=secret
+          </pre></code>
+
+          <p><strong>PowerShell</strong></p>
+          <p>Edit <code>secrets.ps1</code> and add the following content:</p>
+          <pre><code class="powershell">
+$env:CARINA_OAUTH_CLIENT_ID="application-id"
+$env:CARINA_OAUTH_CLIENT_SECRET="secret"
+          </pre></code>
+        </li>
+        <li>
+          Customize the settings file by following the directions in the file.
+          If you are using PowerShell, edit <code>settings.ps1</code>, otherwise <code>settings.sh</code>.
+        </li>
+        <li>
+          <p>
+            Run the following command to create the website. This command can be
+            rerun at any time to update the website assets, materials, or just fix things
+            if they break.
+          </p>
+
+          <p><strong>Bash</strong></p>
+          <pre><code class="bash">
+$ ./run.sh
+          </code></pre>
+
+          <p><strong>PowerShell</strong></p>
+          <pre><code class="powershell">
+> .\run.ps1
+          </code></pre>
+        </li>
+      </ol>
+
+      <h3 id="customize">Customize</h3>
+      <p>
+        This is a mighty fine boxed whale, ready to be taken home and turned into your very
+        own howtowhale. Most things can be tweaked without having to delve into the deployment
+        infrastructure.
+      </p>
+
+      <h4 id="customize-materials">Materials</h4>
+      <p>
+        Add Jupyter notebooks and other materials to the <code>materials</code> directory and redeploy.
+      </p>
+
+      <h4 id="customize-landing-page">Landing Page</h4>
+      <p>
+        Edit <code>html/index.html</code> and redeploy.
+      </p>
+
+      <h4 id="customize-jupyter">User Jupyter Server</h4>
+      <p>
+        Edit <code>jupyter/Dockerfile</code> to either swap out the base Jupyter notebook server image
+        or add dependencies.
+      </p>
+
+      <ul>
+        <li>
+          Change <code>FROM jupyter/minimal-notebook</code> to another
+          base Jupyter notebook server of your choice. I recommend selecting one from the
+          <a href="https://github.com/jupyter/docker-stacks#a-visual-overview-of-stacks">Jupyter Docker Stacks project</a>.
+        </li>
+        <li>
+          Add <code>RUN &lt;command&gt;</code> to install additional dependencies,
+          for example <code>RUN apt-get update &amp;&amp; apt-get install -y curl</code> or
+          <code>RUN pip install pandas</code>.
+        </li>
+      </ul>
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class="col-md-6">&copy; 2016 Carolyn Van Slyck</div>
+      <div class="col-md-6 text-right"><img src="/img/powered-by-carina.png" /></div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </body>
+</html>
