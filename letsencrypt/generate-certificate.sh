@@ -21,6 +21,7 @@ docker run --rm \
   --agree-tos
 
 # Copy the certificate to the volume shared with nginx
+echo "Copying the Let's Encrypt certificate over to nginx"
 cp /etc/letsencrypt/live/$DOMAIN/privkey.pem /etc/certs/jupyterhub.key
 cp /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/certs/jupyterhub.crt
 

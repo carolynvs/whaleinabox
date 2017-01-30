@@ -9,7 +9,7 @@ RUN apk add --update curl && \
     rm -rf /var/cache/apk/*
 
 # Configure cron
-COPY reissue.sh /generate-certificate.sh
+COPY generate-certificate.sh /generate-certificate.sh
 RUN ln -s /generate-certificate.sh /etc/periodic/monthly/reissue && \
     chmod a+x /etc/periodic/monthly/reissue
 
